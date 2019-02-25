@@ -29,8 +29,10 @@ app.use((req, res, next) => {
 app.get('/', (request, response) => {
     response.render('index.hbs', {
         pageTitle: 'Index title',
-        redirectUrl: '/home',
-        redirectName: 'Home'
+        homeUrl: '/home',
+        homeName: 'Home',
+        redirectUrl: '/projects',
+        redirectName: 'Projects'
     });
 });
 
@@ -40,6 +42,15 @@ app.get('/home', (request, response) => {
         welcomeMessage: 'Welcome to my website!',
         redirectUrl: '/',
         redirectName: 'Index'
+    });
+});
+
+app.get('/projects', (request, response) => {
+    response.render('projects.hbs', {
+        pageTitle: 'Projects Page',
+        ProjectsMessage: 'Projects details goes here!',
+        homeUrl: '/',
+        homeName: 'Index'
     });
 });
 
