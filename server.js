@@ -17,7 +17,7 @@ app.set('view engine', 'hbs');
 app.use((req, res, next) => {
     const now = new Date().toDateString();
     const logMessage = `${now}: ${req.method} ${req.url}`;
-    console.log(logMessage);
+
     fs.appendFile('server.log', logMessage + '\n', (error) => {
         if (error) {
             console.log('error in log file');
